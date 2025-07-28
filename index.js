@@ -11,9 +11,7 @@ const App = () => {
     const [userId, setUserId] = useState(null);
     const [isAuthReady, setIsAuthReady] = useState(false);
     const [firebaseStatus, setFirebaseStatus] = useState('Initializing Firebase...');
-console.log("Script loaded!");
-document.getElementById("message").textContent = "JavaScript is working!";
-document.body.style.backgroundColor = "#e0f7fa";
+
     // Chat states
     const [chatHistory, setChatHistory] = useState([]);
     const [userInput, setUserInput] = useState('');
