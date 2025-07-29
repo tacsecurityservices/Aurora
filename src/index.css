@@ -35,3 +35,160 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Custom CSS for Task Manager */
+body {
+    font-family: 'Inter', sans-serif;
+}
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    max-width: 300px;
+}
+.notification.show {
+    transform: translateX(0);
+}
+.notification.success {
+    background-color: #10B981;
+}
+.notification.error {
+    background-color: #EF4444;
+}
+.notification.info {
+    background-color: #3B82F6;
+}
+.notification.warning {
+    background-color: #F59E0B;
+}
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    flex-direction: column;
+}
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3B82F6;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Custom styles for mobile responsiveness */
+@media (max-width: 767px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .header-buttons {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+    .header-content button {
+        flex: 1;
+        min-width: 140px;
+        font-size: 0.875rem;
+    }
+    .main-content-area {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .task-form-grid {
+        grid-template-columns: 1fr;
+    }
+    .task-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .task-list-item .flex-grow {
+        margin-bottom: 0.5rem;
+    }
+    .task-list-item .flex-wrap {
+        width: 100%;
+        justify-content: center;
+    }
+    .task-filters {
+        justify-content: center;
+    }
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+/* Notification permission status indicator */
+.permission-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+.permission-granted {
+    background-color: #10B981;
+}
+.permission-denied {
+    background-color: #EF4444;
+}
+.permission-default {
+    background-color: #F59E0B;
+}
+
